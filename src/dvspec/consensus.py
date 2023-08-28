@@ -13,6 +13,9 @@ from .utils.helpers.slashing_db import (
     is_slashable_attestation_data,
     is_slashable_block,
 )
+from .utils.helpers.commitments import (
+    block_satisfies_proposer_commitments
+)
 
 
 """

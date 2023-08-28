@@ -68,7 +68,3 @@ def is_slashable_block(slashing_db: SlashingDB, block: BeaconBlock, pubkey: BLSP
             if past_block.signing_root != block.hash_tree_root():
                 return True
     return False
-
-def does_block_satisfy_proposer_commitments(block: BeaconBlock) -> bool:
-    """Checks if the block satisfies its proposer's commitments.
-    """
