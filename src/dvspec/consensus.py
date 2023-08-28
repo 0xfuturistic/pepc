@@ -49,10 +49,10 @@ def consensus_is_valid_block(slashing_db: SlashingDB,
     """Determines if the given block is valid for the proposer duty.
     """
     # TODO: Add correct block.proposer_index check
-    # TODO: check commitments here
     return block.slot == proposer_duty.slot and \
            block.body.randao_reveal == randao_reveal and \
-           not is_slashable_block(slashing_db, block, proposer_duty.pubkey)
+           not is_slashable_block(slashing_db, block, proposer_duty.pubkey) and \
+           block_satisfies_proposer_commitments(block)
 
 
 def consensus_on_block(slashing_db: SlashingDB,
