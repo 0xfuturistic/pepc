@@ -85,6 +85,9 @@ def bn_produce_block(slot: Slot, randao_reveal: BLSSignature, graffiti: Bytes32)
     block.body.graffiti = graffiti
     return block
 
+def bn_get_block_satisfies_commitments(block: BeaconBlock) -> bool:
+    return True
+
 
 def rs_sign_attestation(attestation_data: AttestationData, fork_version: Version, signing_root: Root) -> BLSSignature:
     return BLSSignature(str(signing_root.hex()).zfill(96*2))

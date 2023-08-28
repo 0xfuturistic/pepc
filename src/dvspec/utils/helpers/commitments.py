@@ -1,13 +1,9 @@
-import eth2spec.altair.mainnet as eth2spec
 from eth2spec.altair.mainnet import (
-    AttestationData,
     BeaconBlock,
 )
 
-from ..types import (
-    BLSPubkey,
-    SlashingDB,
-    SlashingDBData,
+from ...eth_node_interface import (
+    bn_get_block_satisfies_commitments,
 )
 
 """
@@ -18,4 +14,4 @@ Commitments Helper Functions
 def block_satisfies_proposer_commitments(block: BeaconBlock) -> bool:
     """Checks if the block satisfies its proposer's commitments.
     """
-    return True
+    return bn_get_block_satisfies_commitments(block)

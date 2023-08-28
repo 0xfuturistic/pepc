@@ -80,6 +80,11 @@ def bn_submit_block(block: SignedBeaconBlock) -> None:
     """
     pass
 
+def bn_get_block_satisfies_commitments(block: BeaconBlock) -> bool:
+    """Checks if the block satisfies its proposer's commitments.
+    """
+    pass
+
 
 # Remote Signer Interface
 
