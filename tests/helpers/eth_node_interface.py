@@ -85,7 +85,7 @@ def bn_produce_block(slot: Slot, randao_reveal: BLSSignature, graffiti: Bytes32)
     block.body.graffiti = graffiti
     return block
 
-def bn_get_block_satisfies_commitments(block: BeaconBlock) -> bool:
+def bn_get_does_block_satisfy_proposer_commitments(block: BeaconBlock) -> bool:
     return True
 
 

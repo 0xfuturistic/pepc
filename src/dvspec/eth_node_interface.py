@@ -80,7 +80,7 @@ def bn_submit_block(block: SignedBeaconBlock) -> None:
     """
     pass
 
-def bn_get_block_satisfies_commitments(block: BeaconBlock) -> bool:
+def bn_get_does_block_satisfy_proposer_commitments(block: BeaconBlock) -> bool:
     """Checks if the block satisfies its proposer's commitments.
     """
     pass

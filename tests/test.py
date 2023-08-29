@@ -22,7 +22,7 @@ from tests.helpers.eth_node_interface import (
     fill_attestation_duties_with_val_index,
     filter_and_fill_proposer_duties_with_val_index,
     bn_get_fork_version,
-    bn_get_block_satisfies_commitments,
+    bn_get_does_block_satisfy_proposer_commitments,
     rs_sign_attestation,
     rs_sign_randao_reveal,
     rs_sign_block,
@@ -40,7 +40,7 @@ from tests.helpers.patch_dvspec import (
 replace_method_in_dvspec("consensus_on_attestation", consensus_on_attestation)
 replace_method_in_dvspec("consensus_on_block", consensus_on_block)
 replace_method_in_dvspec("bn_get_fork_version", bn_get_fork_version)
-replace_method_in_dvspec("bn_get_block_satisfies_commitments", bn_get_block_satisfies_commitments)
+replace_method_in_dvspec("bn_get_does_block_satisfy_proposer_commitments", bn_get_does_block_satisfy_proposer_commitments)
 replace_method_in_dvspec("rs_sign_attestation", rs_sign_attestation)
 replace_method_in_dvspec("rs_sign_randao_reveal", rs_sign_randao_reveal)
 replace_method_in_dvspec("rs_sign_block", rs_sign_block)
