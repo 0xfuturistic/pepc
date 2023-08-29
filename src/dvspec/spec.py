@@ -27,6 +27,7 @@ from .eth_node_interface import (
     AttestationDuty,
     ProposerDuty,
     bn_get_fork_version,
+    bn_get_block_satisfies_commitments,
     bn_submit_attestation,
     bn_submit_block,
     rs_sign_attestation,
@@ -172,6 +173,7 @@ def serve_proposer_duty(slashing_db: SlashingDB, proposer_duty: ProposerDuty) ->
     randao_reveal = randao_reveal_combination()
     block = consensus_on_block(slashing_db, proposer_duty, randao_reveal)
     assert consensus_is_valid_block(slashing_db, block, proposer_duty, randao_reveal)
+    assert bn_get_block_satisfies_commitments(block)
     # Release lock on consensus_on_block here.
     # Add block to slashing DB
     update_block_slashing_db(slashing_db, block, proposer_duty.pubkey)

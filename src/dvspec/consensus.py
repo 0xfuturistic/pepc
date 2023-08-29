@@ -51,8 +51,7 @@ def consensus_is_valid_block(slashing_db: SlashingDB,
     # TODO: Add correct block.proposer_index check
     return block.slot == proposer_duty.slot and \
            block.body.randao_reveal == randao_reveal and \
-           not is_slashable_block(slashing_db, block, proposer_duty.pubkey) and \
-           block_satisfies_proposer_commitments(block)
+           not is_slashable_block(slashing_db, block, proposer_duty.pubkey)
 
 
 def consensus_on_block(slashing_db: SlashingDB,
