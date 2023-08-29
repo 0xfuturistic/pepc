@@ -85,7 +85,11 @@ def bn_produce_block(slot: Slot, randao_reveal: BLSSignature, graffiti: Bytes32)
     block.body.graffiti = graffiti
     return block
 
-def bn_get_does_block_satisfy_proposer_commitments(block: BeaconBlock) -> bool:
+def bn_get_does_block_satisfy_proposer_commitments(proposer_duty: ProposerDuty, block: BeaconBlock) -> bool:
+    account = proposer_duty.pubkey # TODO: convert to solidity address
+    target = "{0} {1}".format(DOMAIN(), block.slot).encode('utf-8') # TODO: use merkle tree instead
+    value = bytes(block)
+    # TODO: next call smart contract and pass account, target, and value
     return True
 
 
@@ -127,3 +131,7 @@ def filter_and_fill_proposer_duties_with_val_index(state: State,
             pro_duty.pubkey = val_index_to_pubkey[pro_duty.validator_index]
             filtered_proposer_duties.append(pro_duty)
     return filtered_proposer_duties
+
+
+def DOMAIN() -> bytes:
+    return '0x00000000'
