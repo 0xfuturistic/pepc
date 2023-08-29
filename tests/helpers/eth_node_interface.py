@@ -86,7 +86,7 @@ def bn_produce_block(slot: Slot, randao_reveal: BLSSignature, graffiti: Bytes32)
     return block
 
 def bn_get_does_block_satisfy_proposer_commitments(proposer_duty: ProposerDuty, block: BeaconBlock) -> bool:
-    account = proposer_duty.pubkey # TODO: convert to solidity address
+    account = bytes(proposer_duty.pubkey)[:20]
     target = "{0} {1}".format(DOMAIN(), block.slot).encode('utf-8') # TODO: use merkle tree instead
     value = bytes(block)
     # TODO: next call smart contract and pass account, target, and value
